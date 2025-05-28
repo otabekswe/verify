@@ -46,7 +46,7 @@ class Vector:
         """
         vec_length = self.length()
         if vec_length == 0:
-            raise ValueError("Vektor uzunligi nolga teng bo'lsa, normalizatsiya mumkin emas.")
+            return self.copy()
         return Vector([val / vec_length for val in self.values])
     
     def copy(self) -> 'Vector':

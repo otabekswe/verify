@@ -1,0 +1,1 @@
+URGENT SECURITY ALERT: We detected unusual activity on your bank account. Please log in immediately to confirm your identity and prevent account suspension: [fake_bank_login_page_link]

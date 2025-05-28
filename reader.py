@@ -36,13 +36,13 @@ def sanitize_text_to_word(text: str) -> List[str]:
     return words
 
 
-def text_to_vector(text: str) -> Vector:
+def text_to_vector(words: List[str]) -> Vector:
     """
     Berilgan matnni SCAM_KEYWORDS asosida vektorga aylantiradi.
     Har bir so'z SCAM_KEYWORDS ro'yxatida mavjud bo'lsa, vektor qiymati 1, aks holda 0 bo'ladi.
     """
-    word_counts = Counter(sanitize_text_to_word(text))
-    feature_values = [word_counts.get(keyword, 0) for keyword in SCAM_KEYWORDS]
+    word_counts = Counter(words)  
+    feature_values = [float(word_counts[keyword]) for keyword in SCAM_KEYWORDS]
     return Vector(feature_values)
 
 
@@ -59,20 +59,20 @@ def load_datapoint(dir_path: str, filename: str, label: str) -> Tuple[str, Vecto
         return label, Vector([0] * DIMENSIONS)  # Xatolik yuz bersa, nol vektor qaytaramiz
     
     words = sanitize_text_to_word(text_content)
-    vector = text_to_vector(text_content)
+    vector = text_to_vector(words)
     return label, vector.normalize()  # Vektorni normalizatsiya qilamiz
 
 
 def load_data(base_path: str) -> List[Tuple[str, Vector]]:
     """
     Berilgan katalogdagi fayllarni o'qib, har bir fayl uchun label va vektorlarni qaytaradi.
-    Fayl nomi asosida label aniqlanadi: "scam" yoki "not_scam".
+    Fayl nomi asosida label aniqlanadi: "scam" yoki "notscam".
     """
     dataset = []
-    for label_type in ["scam", "not_scam"]:
+    for label_type in ["scam", "notscam"]:
         dir_path = Path(base_path) / label_type
         if not dir_path.is_dir():
-            print(f"Warning: Directory not found {dir_path}")
+            print(f"Warning: Directory {dir_path} topilmadi, ammo davom etamiz.")
             continue
         for file_name in os.listdir(dir_path):
             if file_name.endswith(".txt"):

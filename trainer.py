@@ -21,37 +21,32 @@ class Trainer:
         self,
         learning_rate: float,
         iterations: int,
-        activation_func_for_training: Callable = None
+        activation_func_for_train: Callable = None
     ):
         """
         Barcha perceptronlarni berilgan ma'lumotlar bilan o'qitadi. Oddiy o'qitish jarayoni.
         """
-        activation_func = activation_func_for_training or step_function
+        activation_func = activation_func_for_train or step_function
 
         for perceptron in self.perceptrons:
-            print(f"Training perceptron for label: '{perceptron.label}'...")
             perceptron.train(
                 self.training_data,
                 learning_rate,
                 iterations,
-                activation_func_for_training=activation_func
+                activation_func_for_train=activation_func
             )
-        print("Training complete for all perceptrons.")
 
-    def train_parallel(self, learning_rate: float, iterations: int, activation_func_for_training: Callable = None):
+    def train_parallel(self, learning_rate: float, iterations: int, activation_func_for_train: Callable = None):
         """
         Barcha perceptronlarni parallel ravishda o'qitadi. Bu o'qitish jarayonini tezlashtiradi.
         """
         threads = []
-        activation_func = activation_func_for_training or step_function
+        activation_func = activation_func_for_train or step_function
         for perceptron in self.perceptrons:
-            print(f"{perceptron.label} uchun o'qitish jarayoni boshlanmoqda...")
             args_tuple = (self.training_data, learning_rate, iterations, activation_func)
             thread = Thread(target=perceptron.train, args=args_tuple, name=perceptron.label)
             threads.append(thread)
             thread.start()
     
         for thread in threads:
-            print(f"{thread.name} ishini tugatishi kutilyapti...")
             thread.join()
-        print("Parallel o'qitish tugadi.")
