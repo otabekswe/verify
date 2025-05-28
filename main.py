@@ -1,7 +1,7 @@
 from selector import Selector
 from perceptron import Perceptron, sigmoid, step_function
 from trainer import Trainer
-from reader import load_data, sanitize_text_to_word, text_to_vector, \
+from loader import load_data, sanitize_text_to_word, text_to_vector, \
                    my_input, DIMENSIONS
 from vector import Vector
 
