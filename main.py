@@ -8,8 +8,8 @@ from vector import Vector
 # --- Configuration ---
 LEARNING_RATE = 0.02
 ITERATIONS = 50
-ACTIVATION_FOR_TRAINING = sigmoid
-ACTIVATION_FOR_SELECTION = sigmoid
+ACTIVATION_FOR_TRAINING = sigmoid # yoki step_function
+ACTIVATION_FOR_SELECTION = sigmoid # yoki step_function
 
 
 if __name__ == '__main__':

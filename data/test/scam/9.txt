@@ -1,0 +1,1 @@
+A package is waiting for you at the post office. There is an unpaid shipping fee of $2.95. Please pay now at [fake_shipping_payment_link] to schedule delivery.

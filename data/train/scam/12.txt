@@ -1,0 +1,1 @@
+We detected unusual login attempts on your account. Secure your account now by updating your password through this portal: [fake_portal_link]. Your security is our priority.

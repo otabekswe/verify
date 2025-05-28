@@ -1,0 +1,1 @@
+URGENT: Your bank account has been flagged for suspicious activity. Please verify your login details immediately by clicking this link: [suspicious_link]. Failure to do so within 24 hours will result in account suspension.

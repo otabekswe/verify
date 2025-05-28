@@ -1,0 +1,1 @@
+Your order #12345 has shipped! You can track its progress here: [legitimate_tracking_link]. Expected delivery: June 2nd.
