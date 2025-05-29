@@ -2,9 +2,7 @@
 
 This project demonstrates a simple artificial intelligence model that helps analyze texts and determine if they are "scam" or "notscam".
 
-## Xush kelibsiz! / Welcome!
-
-Tilni tanlang / Choose your language:
+## Tilni tanlang / Choose your language:
 
 - [O'zbekcha](./docs/README.uz.md)
 - [English](./docs/README.eng.md)
